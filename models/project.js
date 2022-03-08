@@ -7,10 +7,7 @@ const projectSchema = mongoose.Schema ({
     type: String,
     required: true
   },
-  startDate: {
-    type: Date,
-    required: true
-  },
+  startDate: Date,
   endDate:  Date,
   completed: Boolean,
   description: String,

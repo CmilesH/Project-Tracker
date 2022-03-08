@@ -1,4 +1,5 @@
 import { Profile } from '../models/profile.js'
+import { Project } from "../models/project.js";
 
 function index(req, res) {
   Profile.find({})
@@ -20,10 +21,13 @@ function show(req, res) {
     Profile.findById(req.user.profile._id)
     .then(self => {
       const isSelf = self._id.equals(profile._id)
+      Project.find({owner: profile._id}, function (err, projects) {
       res.render("profiles/show", {
         title: `${profile.name}'s profile`,
         profile,
         isSelf,
+        projects
+      })
       })
     })
   })

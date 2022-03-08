@@ -17,9 +17,8 @@
   
   <h2>Projects</h2>
   <ul>
-    <% profile.projects.forEach(project => { %>
-      <li><% project.name %> </li>
-      <li><% project.startDate %> </li>
+    <% projects.forEach(project => { %>
+      <li><a href="/projects/<%= project.id %>"> <%= project.name %></a> </li>
     <%}) %> 
   </ul>
 
