@@ -15,6 +15,13 @@
   
   <h1><%= isSelf ? "Your Profile" : `${profile.name}'s Profile` %></h1>
   
+  <h2>Projects</h2>
+  <ul>
+    <% profile.projects.forEach(project => { %>
+      <li><% project.name %> </li>
+      <li><% project.startDate %> </li>
+    <%}) %> 
+  </ul>
 
 </main>
 

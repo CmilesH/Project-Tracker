@@ -1,0 +1,11 @@
+<%- include('../partials/html-head') %>
+<%- include('../partials/nav') %>
+
+<section>
+  <h1><%= project.name %></h1>
+  <h2>Started By: <%= project.owner.name %> </h2>
+  <h2><%= project.startDate %> <</h2>
+  <h2>Status: <%= project.complete ? 'Complete' : 'Incomplete'%> <</h2>
+</section>
+
+<%- include('../partials/footer') %>

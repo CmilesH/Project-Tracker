@@ -1,0 +1,25 @@
+<%- include('../partials/html-head') %>
+<%- include('../partials/nav') %>
+
+<h1>New Project</h1>
+  <form action="/projects" method="POST">
+    <label>
+      Name: 
+      <input type="text" name="name" autocomplete="off">
+    </label>
+    <label>
+      Start Date: 
+      <input type="datetime-local" name="start-date" autocomplete="off">
+    </label>
+    <label>
+      Complete?
+      <input type="checkbox" name="complete">
+    </label>
+    <label>
+      Description: 
+      <input type="text" name="description" autocomplete="off">
+    </label>
+    <button type="submit">Create Project</button>
+  </form>
+
+<%- include('../partials/footer') %>
