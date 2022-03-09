@@ -9,6 +9,7 @@ function newProject(req, res) {
 
 function create(req, res) {
   req.body.owner = req.user.profile._id
+  req.body.completed = !!req.body.completed
   Project.create(req.body)
   .then(project => {
     res.redirect(`/profiles/${req.user.profile._id}`)
@@ -34,8 +35,62 @@ function show(req, res) {
   })
 }
 
+function edit(req, res) {
+  Project.findById(req.params.id)
+  .then(project => {
+    res.render('projects/edit', {
+      project,
+      title: "Edit Project"
+    })
+  })
+  .catch(err => {
+    console.log(err)
+    res.redirect('/projects')
+  })
+}
+
+function update(req, res) {
+  Project.findById(req.params.id)
+  .then(projects => {
+    if (project.owner.equals(req.user.profile._id)) {
+      req.body.tasty = !!req.body.tasty
+      project.updateOne(req.body, {new: true})
+      .then(()=> {
+        res.redirect(`/projects/${project._id}`)
+      })
+    } else {
+      throw new Error ('Not authorized ')
+    }
+  })
+  .catch(err => {
+    console.log(err)
+    res.redirect(`/projects`)
+  })
+}
+
+function deleteProject(req, res) {
+  Project.findById(req.params.id)
+  .then(project => {
+    if (project.owner.equals(req.user.profile._id)) {
+      project.delete()
+      .then(() => {
+        res.redirect(`/profiles/${req.user.profile._id}`)
+      })
+    } else {
+      throw new Error ('Not authorized ')
+    }   
+  })
+  .catch(err => {
+    console.log(err)
+    res.redirect('/projects')
+  })
+}
+
 export{
   create,
   show,
-  newProject as new
+  newProject as new,
+  edit,
+  update,
+  deleteProject as delete
 }

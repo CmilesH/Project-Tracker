@@ -1,0 +1,36 @@
+<%- include('../partials/html-head') %>
+<%- include('../partials/nav') %>
+
+<section>
+  <h1>Edit Project</h1>
+  <form action="/project/<%= project._id %>?_method=PUT" method="POST">
+    <label>
+      Name: 
+      <input 
+        type="text"
+        name="name" 
+        value="<%= project.name %>" 
+        autocomplete="off"
+      >
+    </label>
+    <label>
+      Start Date: 
+      <input type="date" name="startDate" value="<%= project.startDate %> " autocomplete="off">
+    </label>
+    <label>
+      Completed?
+      <input 
+        type="checkbox" 
+        name="completed" 
+				<%= project.completed ? "checked" : "" %> 
+      >
+    </label>
+    <label>
+      Description: 
+      <input type="text" name="description" value="<%= project.description %> " autocomplete="off">
+    </label>
+    <button type="submit">Save Changes</button>
+  </form>
+</section>
+
+<%- include('../partials/footer') %>
