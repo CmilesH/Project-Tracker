@@ -51,9 +51,9 @@ function edit(req, res) {
 
 function update(req, res) {
   Project.findById(req.params.id)
-  .then(projects => {
+  .then(project => {
     if (project.owner.equals(req.user.profile._id)) {
-      req.body.tasty = !!req.body.tasty
+      req.body.completed = !!req.body.completed
       project.updateOne(req.body, {new: true})
       .then(()=> {
         res.redirect(`/projects/${project._id}`)
@@ -64,7 +64,7 @@ function update(req, res) {
   })
   .catch(err => {
     console.log(err)
-    res.redirect(`/projects`)
+    res.redirect(`/profiles/${req.user.profile._id}`)
   })
 }
 
