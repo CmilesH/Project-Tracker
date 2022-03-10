@@ -7,7 +7,6 @@
     <a 
     href="/"
   >Home</a>
- 
     <% if (user) { %>
       <a href="/auth/logout">
         <button type="submit">Logout</button>
@@ -15,9 +14,6 @@
       <a href="/projects/new">
         Add Project
       </a>
-      <!-- <a 
-      href="profiles"
-    >Profile</a> -->
     <% } else { %>
       <a href="/auth/google" class="siwg-link">
         <button type="submit" class="siwg">
