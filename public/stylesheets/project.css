@@ -1,0 +1,28 @@
+body {
+  background-color: #e8eceb;
+
+  margin: 0;
+  color: #424748;
+  min-height: 100vh;
+  display: grid;
+  grid-template-rows: 50px 1fr;
+  grid-template-areas:
+    "nav"
+    "main";
+  font-size: 1.8rem;
+}
+
+#project > h1{
+  text-align: center;
+  color: black;
+  
+}
+
+#project > h2{
+  text-align: center;
+  font-size: 15px;
+}
+
+#comments > #comment{
+  font-style: italic;
+}
