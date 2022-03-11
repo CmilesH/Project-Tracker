@@ -6,7 +6,8 @@ function index(req, res) {
   .then(profiles => {
     res.render('profiles/index', {
       profiles,
-			title: "Home Page"
+			title: "Home Page",
+      user: req.user ? req.user : null
     })
   })
   .catch(err => {
@@ -18,19 +19,30 @@ function index(req, res) {
 function show(req, res) {
   Profile.findById(req.params.id)
   .then((profile) => {
-    Profile.findById(req.user.profile._id)
-    .then(self => {
-      const isSelf = self._id.equals(profile._id)
+    console.log(req.user)
+    if (req.user) {
+      Profile.findById(req.user.profile._id)
+      .then(self => {
+        const isSelf = self._id.equals(profile._id)
+        Project.find({owner: profile._id}, function (err, projects) {
+          res.render("profiles/show", {
+          title: `${profile.name}'s profile`,
+          profile,
+          isSelf,
+          projects
+          })
+        })
+      })
+    } else {
       Project.find({owner: profile._id}, function (err, projects) {
-      res.render("profiles/show", {
+        res.render("profiles/show", {
         title: `${profile.name}'s profile`,
         profile,
-        isSelf,
+        isSelf: null,
         projects
-      })
-      })
-    })
-  })
+        })
+    }) 
+  }})
   .catch((err) => {
     console.log(err)
     res.redirect("/")

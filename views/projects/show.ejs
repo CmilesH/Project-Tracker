@@ -26,18 +26,19 @@
     id="add-comment-form"
     method="POST"
   >
-    <input type="text" name="content" id="comment" required></input>
+    <textarea type="text" name="content" id="comment" required></textarea>
   </form>
   <button type="submit" form="add-comment-form">Add Comment</button>
   <% if (project.comments.length) { %>
         <% project.comments.forEach(function(comment) { %>
+          <p><%= comment.content %></p>
           <h3>  
-            <%= comment.content %>
             <%= comment.author.name %>
           </h3>
-            
-            at <%= comment.createdAt.toLocaleDateString() %> 
-          
+          <div>
+          at <%= comment.createdAt.toLocaleDateString() %> 
+          </div> 
+          <hr class="solid">
         <% }) %>
   <% } else { %>
     <h3>No Comments Yet</h3>

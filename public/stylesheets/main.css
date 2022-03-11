@@ -46,9 +46,9 @@ nav {
   grid-area: nav;
   background-color: #b8c0c2;
   display: flex;
-  justify-content: flex-end;
   align-items: center;
   padding: 0 20px 0 30px;
+  justify-content: flex-end;
 }
 
 
@@ -60,10 +60,25 @@ nav > a {
   color: #424748;
 }
 
+nav > a:hover {
+  color: white;
+  background-color: #424748;
+}
+
 a:visited{
   color: black;
 }
 
 img {
   border-radius: 50px;
+}
+
+div{
+
+}
+
+ul{
+  text-align: left;
+  list-style: none;
+  margin-left: 0;
 }

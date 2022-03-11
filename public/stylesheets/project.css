@@ -23,6 +23,23 @@ body {
   font-size: 15px;
 }
 
-#comments > #comment{
-  font-style: italic;
+#comments {
+  padding: 25px;
+}
+
+div{
+  font-size: 10px;
+}
+
+hr.solid {
+  border-top: 3px solid #bbb;
+}
+
+p{
+  font-size: 20px;
+}
+
+#comment{
+  height: 100px;
+  width: 400px;
 }
