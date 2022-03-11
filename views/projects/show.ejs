@@ -31,6 +31,7 @@
 </section>
 <section id="comments">
   <h2>Comments</h2>
+  <% if (user) {%>
   <form 
     action="/projects/<%= project._id %>/comments"
     id="add-comment-form"
@@ -39,6 +40,7 @@
     <textarea type="text" name="content" id="comment" required></textarea>
   </form>
   <button type="submit" form="add-comment-form">Add Comment</button>
+  <% } %> 
   <% if (project.comments.length) { %>
         <% project.comments.forEach(function(comment) { %>
           <p><%= comment.content %></p>
