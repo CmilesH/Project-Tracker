@@ -107,5 +107,6 @@ i > button:hover {
 
 i {
   height: 50px;
+  flex-wrap: nowrap;
 }
 

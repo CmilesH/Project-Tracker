@@ -8,7 +8,7 @@
       <% profiles.forEach(profile => { %>
         
           <a style="text-decoration: none" href="/profiles/<%= profile._id %>">
-            <div>
+            <p>
               <% if (profile.avatar) { %>
                 <img
                   src="<%= profile.avatar %>"
@@ -16,10 +16,10 @@
                   width="50%"
                 />
               <% } %>
-              <div class="card-body">
-                <p> <%= profile.name %></p>
-              </div>
-            </div>
+              
+                <p><%= profile.name %></p>
+              
+              </p>
           </a>
         
       <% }) %>
