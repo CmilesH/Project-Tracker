@@ -17,10 +17,9 @@
   <h2>Started By: <a href="/profiles/<%= project.owner._id %>"><%= project.owner.name %></a> on <%= new Date(project.startDate).toLocaleDateString() %></h2>
   <h2>Status: <%= project.completed ? 'Complete' : 'Incomplete'%> </h2>
   <h2>
-    About: 
   
       <%= project.description %> 
-   
+  
   </h2>
     <% if (project.owner.equals(user?.profile._id)) { %>
 
