@@ -1,11 +1,12 @@
 <%- include('../partials/html-head') %>
 <%- include('../partials/nav') %>
+<link rel="stylesheet" href="/stylesheets/profile.css">
 
 
-<main>
-  <div>
+<main class="profiles">
+  <div >
       <% profiles.forEach(profile => { %>
-        <div class="col">
+        
           <a style="text-decoration: none" href="/profiles/<%= profile._id %>">
             <div>
               <% if (profile.avatar) { %>
@@ -16,11 +17,11 @@
                 />
               <% } %>
               <div class="card-body">
-                <p class="card-title fs-3 text-dark"><%= profile.name %></p>
+                <p> <%= profile.name %></p>
               </div>
             </div>
           </a>
-        </div>
+        
       <% }) %>
     </div>
 </main>

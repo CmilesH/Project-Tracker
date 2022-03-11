@@ -16,11 +16,16 @@
   <h1><%= isSelf ? "Your Profile" : `${profile.name}'s Profile` %></h1>
   
   <h2>Projects</h2>
-  <ul>
+  <div class="projects">
+    <ul>
     <% projects.forEach(project => { %>
-      <li><a href="/projects/<%= project.id %>"> <%= project.name %></a> </li>
+      
+        <a href="/projects/<%= project.id %>" class="pj-title"> <%= project.name %></a> <br>
+        <p> Current Status: <%= project.completed ? "Completed" : "Incomplete" %> </p>
+      
     <%}) %> 
-  </ul>
+    </ul>
+    </div>
 
 </main>
 

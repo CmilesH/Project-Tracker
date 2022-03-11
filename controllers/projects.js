@@ -88,10 +88,8 @@ function deleteProject(req, res) {
 
 function createComment(req, res) {
   req.body.author = req.user.profile._id
-  console.log(req.body)
   Project.findById(req.params.id) 
     .then((project) => {
-    console.log(req.body)
     project.comments.push(req.body)
     project.save(function(err) {
       res.redirect(`/projects/${project._id}`)
